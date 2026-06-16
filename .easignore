@@ -1,0 +1,34 @@
+# Copy from .gitignore (EAS uses this instead when present)
+node_modules/
+.expo/
+dist/
+web-build/
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+.metro-health-check*
+.metro-cache/
+.metro-cache-key/
+*.cache
+.cache/
+cache/
+.env
+.env.local
+.env.development
+.env.production
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+.DS_Store
+*.pem
+.env*.local
+*.tsbuildinfo
+
+# Ignore native directories so EAS runs prebuild and generates clean android/ and ios/
+# (avoids local Gradle cache, Windows paths, and version mismatches on EAS)
+/android
+/ios
