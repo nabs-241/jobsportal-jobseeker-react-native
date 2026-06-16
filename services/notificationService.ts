@@ -203,7 +203,13 @@ class NotificationService {
       const response = await apiService.get('/notification-preferences', authToken);
       
       if (response.success && response.data) {
-        this.preferences = response.data as any;
+        const defaults = this.getDefaultPreferences();
+        const data = response.data as any;
+        this.preferences = {
+          ...defaults,
+          ...data,
+          quietHours: { ...defaults.quietHours, ...(data.quietHours ?? {}) },
+        };
         devLog('✅ Notification preferences loaded');
       } else {
         // Set default preferences
@@ -245,7 +251,7 @@ class NotificationService {
     if (!this.preferences) return true;
 
     // Check if quiet hours are active
-    if (this.preferences.quietHours.enabled) {
+    if (this.preferences.quietHours?.enabled) {
       const now = new Date();
       const currentTime = now.getHours() * 60 + now.getMinutes();
       const startTime = this.parseTime(this.preferences.quietHours.start);

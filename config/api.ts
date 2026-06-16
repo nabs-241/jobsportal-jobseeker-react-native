@@ -1,6 +1,8 @@
 // API Configuration for Jobs Portal App
 // Base URL and common API constants
-import i18n from '../i18n';
+const getI18nLanguage = (): string => {
+  try { return (require('../i18n').default?.language) || 'en'; } catch { return 'en'; }
+};
 
 export const API_CONFIG = {
   // Base API URL (includes /api). Used for ALL requests: candidate and company.
@@ -220,7 +222,7 @@ export const getCommonHeaders = (token?: string): Record<string, string> => {
   const headers: Record<string, string> = {
     'Content-Type': API_CONFIG.HEADERS.CONTENT_TYPE,
     'Accept': API_CONFIG.HEADERS.ACCEPT,
-    'Accept-Language': i18n.language || 'en', // Send current language to API
+    'Accept-Language': getI18nLanguage(),
   };
 
   if (token) {

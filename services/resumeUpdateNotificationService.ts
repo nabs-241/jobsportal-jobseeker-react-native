@@ -303,23 +303,14 @@ class ResumeUpdateNotificationService {
    * Get last reminder sent time
    */
   private getLastReminderSent(): Date | null {
-    try {
-      const stored = localStorage.getItem('resume_reminder_sent');
-      return stored ? new Date(stored) : null;
-    } catch (error) {
-      return null;
-    }
+    return null; // checked asynchronously via AsyncStorage instead
   }
 
   /**
    * Update last reminder sent time
    */
   private updateLastReminderSent(): void {
-    try {
-      localStorage.setItem('resume_reminder_sent', new Date().toISOString());
-    } catch (error) {
-      console.error('❌ Error updating last reminder sent:', error);
-    }
+    AsyncStorage.setItem('resume_reminder_sent', new Date().toISOString()).catch(() => {});
   }
 
   /**
@@ -360,11 +351,7 @@ class ResumeUpdateNotificationService {
    * Reset reminder cooldown (for testing)
    */
   resetReminderCooldown(): void {
-    try {
-      localStorage.removeItem('resume_reminder_sent');
-    } catch (error) {
-      console.error('❌ Error resetting reminder cooldown:', error);
-    }
+    AsyncStorage.removeItem('resume_reminder_sent').catch(() => {});
   }
 }
 

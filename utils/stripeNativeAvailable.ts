@@ -20,8 +20,8 @@ export function isStripeNativeAvailable(): boolean {
       return true;
     }
     try {
-      const Turbo = require('react-native/Libraries/TurboModule/TurboModuleRegistry');
-      if (Turbo.get('OnrampSdk') != null || Turbo.get('StripeSdk') != null) {
+      const { TurboModuleRegistry } = require('react-native');
+      if (TurboModuleRegistry?.get?.('OnrampSdk') != null || TurboModuleRegistry?.get?.('StripeSdk') != null) {
         cached = true;
         return true;
       }
