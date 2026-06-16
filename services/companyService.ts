@@ -822,7 +822,7 @@ class CompanyService {
     if (!token) return { success: false, statusCode: 401 };
     const url = buildApiUrl('/update-company-profile');
     const response = await fetch(url, {
-      method: 'PUT',
+      method: 'POST',
       headers: {
         Accept: 'application/json',
         Authorization: `Bearer ${token}`,
