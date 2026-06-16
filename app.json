@@ -36,7 +36,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "d4573510-2cbc-4666-a645-2c4569f8d9cd"
+        "projectId": "d3ea11e5-c70c-4e90-bf80-7ac7a6af6bcc"
       }
     },
     "plugins": [
@@ -55,6 +55,6 @@
       ],
       "@react-native-community/datetimepicker"
     ],
-    "owner": "sharjeelanjum"
+    "owner": "nabs241"
   }
 }

@@ -7,7 +7,7 @@ const getI18nLanguage = (): string => {
 export const API_CONFIG = {
   // Base API URL (includes /api). Used for ALL requests: candidate and company.
   // buildApiUrl(endpoint) produces BASE_URL + endpoint, e.g. .../api/company-home, .../api/login
-  BASE_URL: 'https://www.sharjeelanjum.com/demos/jobsportal-update/api',
+  BASE_URL: 'https://www.trouvail.ga/api',
 
   // API Endpoints
   ENDPOINTS: {
